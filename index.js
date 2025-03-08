@@ -11,14 +11,14 @@ app.use(express.json());
 
 // Secure API route
 app.get("/api-key", (req, res) => {
-  const authHeader = req.headers.authorization;
+  // const authHeader = req.headers.authorization;
 
-  console.log('authHeader: ' + authHeader);
-  console.log('secret: ' + process.env.SERVER_SECRET);
+  // console.log('authHeader: ' + authHeader);
+  // console.log('secret: ' + process.env.SERVER_SECRET);
 
-  if (!authHeader || authHeader !== `Bearer ${process.env.SERVER_SECRET}`) {
-    return res.status(403).json({ error: "Unauthorized" });
-  }
+  // if (!authHeader || authHeader !== `Bearer ${process.env.SERVER_SECRET}`) {
+  //   return res.status(403).json({ error: "Unauthorized" });
+  // }
 
   res.json({ apiKey: process.env.OPENAI_API_KEY });
 });

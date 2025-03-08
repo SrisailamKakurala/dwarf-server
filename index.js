@@ -13,6 +13,9 @@ app.use(express.json());
 app.get("/api-key", (req, res) => {
   const authHeader = req.headers.authorization;
 
+  console.log('authHeader: ' + authHeader);
+  console.log('secret: ' + process.env.SERVER_SECRET);
+
   if (!authHeader || authHeader !== `Bearer ${process.env.SERVER_SECRET}`) {
     return res.status(403).json({ error: "Unauthorized" });
   }

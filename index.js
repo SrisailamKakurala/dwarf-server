@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 5000;
 app.use(cors()); // Allows requests from your CLI
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("dummy Server");
+});
+
 // Secure API route
 app.get("/api-key", (req, res) => {
   const authHeader = req.headers.authorization;

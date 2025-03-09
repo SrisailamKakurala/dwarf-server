@@ -15,11 +15,14 @@ app.get("/", (req, res) => {
 
 // Secure API route
 app.get("/api-key", (req, res) => {
-  const authHeader = req.headers.authorization;
+  // const authHeader = req.headers.authorization;
 
-  if (!authHeader || authHeader !== `Bearer ${process.env.SERVER_SECRET}`) {
-    return res.status(403).json({ error: "Unauthorized" });
-  }
+  // console.log('authHeader: ' + authHeader);
+  // console.log('secret: ' + process.env.SERVER_SECRET);
+
+  // if (!authHeader || authHeader !== `Bearer ${process.env.SERVER_SECRET}`) {
+  //   return res.status(403).json({ error: "Unauthorized" });
+  // }
 
   res.json({ apiKey: process.env.OPENAI_API_KEY });
 });
